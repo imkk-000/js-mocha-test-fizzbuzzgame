@@ -3,60 +3,32 @@ const FizzBuzzGame = require('../src/index.js')
 
 describe('FizzBuzz Game', () => {
     describe('Say', () => {
-        const testData = [{
-                'expectedResult': '1',
-                'input': 1,
-            },
-            {
-                'expectedResult': '2',
-                'input': 2,
-            },
-            {
-                'expectedResult': 'Fizz',
-                'input': 3,
-            },
-            {
-                'expectedResult': 'Buzz',
-                'input': 5,
-            },
-            {
-                'expectedResult': 'Fizz',
-                'input': 6,
-            },
-            {
-                'expectedResult': 'Fizz',
-                'input': 9,
-            },
-            {
-                'expectedResult': 'Buzz',
-                'input': 10,
-            },
-            {
-                'expectedResult': 'FizzBuzz',
-                'input': 15,
-            },
-            {
-                'expectedResult': 'FizzBuzz',
-                'input': 30,
-            }
-        ]
+        const testData = {
+            1: '1',
+            2: '2',
+            3: 'Fizz',
+            5: 'Buzz',
+            6: 'Fizz',
+            9: 'Fizz',
+            10: 'Buzz',
+            15: 'FizzBuzz',
+            30: 'FizzBuzz',
+        }
 
         // generate test case template from test data
-        testData.forEach(({
-            expectedResult,
-            input
-        }) => {
-            it(`${input} should be ${expectedResult}`, () => {
-                // Arrange
-                const expectedSay = expectedResult
+        Object
+            .entries(testData)
+            .forEach(([input, expectedSay]) => {
+                it(`${input} should be ${expectedSay}`, () => {
+                    // Arrange
 
-                // Act
-                const fizzBuzzGame = new FizzBuzzGame()
-                const actualSay = fizzBuzzGame.Say(input)
+                    // Act
+                    const fizzBuzzGame = new FizzBuzzGame()
+                    const actualSay = fizzBuzzGame.Say(input)
 
-                // Assert
-                assert.equal(actualSay, expectedSay)
+                    // Assert
+                    assert.equal(actualSay, expectedSay)
+                })
             })
-        })
     })
 })
