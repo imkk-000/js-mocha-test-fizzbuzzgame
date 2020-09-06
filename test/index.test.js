@@ -40,6 +40,8 @@ describe('FizzBuzz Game', () => {
                 'input': 30,
             }
         ]
+
+        // generate test case template from test data
         testData.forEach(({
             expectedResult,
             input
