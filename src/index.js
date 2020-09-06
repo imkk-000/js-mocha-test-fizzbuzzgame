@@ -1,11 +1,16 @@
 module.exports = class {
     Say(number) {
-        if (number % 15 == 0) {
-            return 'FizzBuzz'
-        } else if (number % 5 == 0) {
-            return 'Buzz'
-        } else if (number % 3 == 0) {
-            return 'Fizz'
+        const modNumbers = [15, 3, 5]
+        const sayMessages = {
+            15: 'FizzBuzz',
+            3: 'Fizz',
+            5: 'Buzz',
+        }
+        for (let i = 0; i < modNumbers.length; i++) {
+            const modNumber = modNumbers[i]
+            if (number % modNumber == 0) {
+                return sayMessages[modNumber]
+            }
         }
         return number.toString()
     }
