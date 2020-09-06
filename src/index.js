@@ -1,10 +1,10 @@
 module.exports = class {
     Say(number) {
-        if (number == 5) {
+        if (number % 5 == 0) {
             return 'Buzz'
-        } else if (number == 3) {
+        } else if (number % 3 == 0) {
             return 'Fizz'
         }
-        return 1
+        return number.toString()
     }
 }

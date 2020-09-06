@@ -8,13 +8,29 @@ describe('FizzBuzz Game', () => {
                 'input': 1,
             },
             {
+                'expectedResult': '2',
+                'input': 2,
+            },
+            {
                 'expectedResult': 'Fizz',
                 'input': 3,
             },
             {
                 'expectedResult': 'Buzz',
                 'input': 5,
-            }
+            },
+            {
+                'expectedResult': 'Fizz',
+                'input': 6,
+            },
+            {
+                'expectedResult': 'Fizz',
+                'input': 9,
+            },
+            {
+                'expectedResult': 'Buzz',
+                'input': 10,
+            },
         ]
         testData.forEach(({
             expectedResult,
