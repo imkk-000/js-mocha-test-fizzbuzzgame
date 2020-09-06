@@ -2,38 +2,35 @@ const assert = require('assert')
 const FizzBuzzGame = require('../src/index.js')
 
 describe('FizzBuzz Game', () => {
-    it('Say 1 should be 1', () => {
-        // Arrange
-        const expectedSay = '1'
+    describe('Say', () => {
+        const testData = [{
+                'expectedResult': '1',
+                'input': 1,
+            },
+            {
+                'expectedResult': 'Fizz',
+                'input': 3,
+            },
+            {
+                'expectedResult': 'Buzz',
+                'input': 5,
+            }
+        ]
+        testData.forEach(({
+            expectedResult,
+            input
+        }) => {
+            it(`${input} should be ${expectedResult}`, () => {
+                // Arrange
+                const expectedSay = expectedResult
 
-        // Act
-        const fizzBuzzGame = new FizzBuzzGame()
-        const actualSay = fizzBuzzGame.Say(1)
+                // Act
+                const fizzBuzzGame = new FizzBuzzGame()
+                const actualSay = fizzBuzzGame.Say(input)
 
-        // Assert
-        assert.equal(actualSay, expectedSay)
-    })
-    it('Say 3 should be Fizz', () => {
-        // Arrange
-        const expectedSay = 'Fizz'
-
-        // Act
-        const fizzBuzzGame = new FizzBuzzGame()
-        const actualSay = fizzBuzzGame.Say(3)
-
-        // Assert
-        assert.equal(actualSay, expectedSay)
-    })
-
-    it('Say 5 should be Buzz', () => {
-        // Arrange
-        const expectedSay = 'Buzz'
-
-        // Act
-        const fizzBuzzGame = new FizzBuzzGame()
-        const actualSay = fizzBuzzGame.Say(5)
-
-        // Assert
-        assert.equal(actualSay, expectedSay)
+                // Assert
+                assert.equal(actualSay, expectedSay)
+            })
+        })
     })
 })
