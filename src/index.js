@@ -1,15 +1,21 @@
 module.exports = class {
+    #modNumbers
+    #sayMessages
+
+    constructor(modNumbers, sayMessages) {
+        this.#modNumbers = modNumbers
+        this.#sayMessages = sayMessages
+    }
+
+    #isMod(number, modNumber) {
+        return number % modNumber == 0
+    }
+
     Say(number) {
-        const modNumbers = [15, 3, 5]
-        const sayMessages = {
-            15: 'FizzBuzz',
-            3: 'Fizz',
-            5: 'Buzz',
-        }
-        for (let i = 0; i < modNumbers.length; i++) {
-            const modNumber = modNumbers[i]
-            if (number % modNumber == 0) {
-                return sayMessages[modNumber]
+        for (let i = 0; i < this.#modNumbers.length; i++) {
+            const modNumber = this.#modNumbers[i]
+            if (this.#isMod(number, modNumber)) {
+                return this.#sayMessages[modNumber]
             }
         }
         return number.toString()

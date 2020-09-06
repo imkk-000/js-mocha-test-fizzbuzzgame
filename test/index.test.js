@@ -1,8 +1,8 @@
 const assert = require('assert')
 const FizzBuzzGame = require('../src/index.js')
 
-describe('FizzBuzz Game', () => {
-    describe('Say', () => {
+describe('Game', () => {
+    describe('FizzBuzz', () => {
         const testData = {
             1: '1',
             2: '2',
@@ -19,11 +19,17 @@ describe('FizzBuzz Game', () => {
         Object
             .entries(testData)
             .forEach(([input, expectedSay]) => {
-                it(`${input} should be ${expectedSay}`, () => {
+                it(`When Say ${input}, should be ${expectedSay}`, () => {
                     // Arrange
+                    const modNumbers = [15, 3, 5]
+                    const sayMessages = {
+                        15: 'FizzBuzz',
+                        3: 'Fizz',
+                        5: 'Buzz',
+                    }
 
                     // Act
-                    const fizzBuzzGame = new FizzBuzzGame()
+                    const fizzBuzzGame = new FizzBuzzGame(modNumbers, sayMessages)
                     const actualSay = fizzBuzzGame.Say(input)
 
                     // Assert
